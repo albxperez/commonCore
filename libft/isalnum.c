@@ -12,22 +12,24 @@
 
 #include <unistd.h>
 #include <stdio.h>
+#include <ctype.h>
 
-int	isalnum(int c)
+int	ft_isalnum(int c)
 {
 	if (!(c >= 'A' && c <= 'Z')
 			&& !(c >= 'a' && c <= 'z')
 			&& !(c >= '0' && c <= '9'))
 		{
-			return (1);
+			return (0);
 		}
 	else
-		return (0);
+		return (1);
 }
 
 int	main(void)
 {
 	unsigned char c = 'c';
-	printf("%d", isalnum(c));
+	printf("%d", ft_isalnum(c));
+	printf("\n%d", isalnum(c));
 	return 0;
 }

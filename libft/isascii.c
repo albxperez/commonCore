@@ -12,8 +12,9 @@
 
 #include <unistd.h>
 #include <stdio.h>
+#include <ctype.h>
 
-int	isascii(int c)
+int	ft_isascii(int c)
 {
 	if (c <= 127)
 		return 1;
@@ -24,6 +25,7 @@ int	isascii(int c)
 int	main(void)
 {
 	unsigned char c = '\n';
-	printf("%d", isascii(c));
+	printf("%d", ft_isascii(c));
+	printf("\n%d", isascii(c));
 	return 0;
 }

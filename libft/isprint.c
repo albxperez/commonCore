@@ -12,18 +12,20 @@
 
 #include <stdio.h>
 #include <unistd.h>
+#include <ctype.h>
 
-int	isprint(int c)
+int	ft_isprint(int c)
 {
 	if(c > 31 && c < 127)
-		return 0;
-	else 
 		return 1;
+	else 
+		return 0;
 }
 
 int	main(void)
 {
 	unsigned char c ='A' ;
-	printf("%d", isprint(c));
+	printf("%d", ft_isprint(c));
+	printf("\n%d", isprint(c));
 	return 0;
 }

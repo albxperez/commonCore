@@ -12,8 +12,9 @@
 
 #include <unistd.h>
 #include <stdio.h>
+#include <ctype.h>
 
-int	isdigit(int c)
+int	ft_isdigit(int c)
 {
 	if (!(c >= '0' && c <= '9'))
 		return 0;
@@ -24,6 +25,7 @@ int	isdigit(int c)
 int	main(void)
 {
 	unsigned char c = '7';
-	printf("%d", isdigit(c));
+	printf("%d", ft_isdigit(c));
+	printf("\n%d", isdigit(c));
 	return 0;
 }
