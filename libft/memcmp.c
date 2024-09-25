@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bzero.c                                            :+:      :+:    :+:   */
+/*   memcmp.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 19:34:31 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/09/23 19:38:29 by aperez-r         ###   ########.fr       */
+/*   Created: 2024/09/25 18:19:46 by aperez-r          #+#    #+#             */
+/*   Updated: 2024/09/25 18:43:42 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdio.h>
-#include <strings.h>
+#include <string.h>
 
-void	ft_bzero(void *s, size_t n)
+int	ft_memcmp(const void *str1, const void *str2, size_t n)
 {
-	unsigned char *ptr = (unsigned char*) s;
-
-	int i;
+	unsigned char *s1 = (unsigned char*) str1;
+	unsigned char *s2 = (unsigned char*) str2;
+	int	i;
 
 	i = 0;
-	while(i != '\0')
+	while (((s1[i] != '\0') || (s2[i] != '\0')) && (i < n))
 	{
-		while(i <= n)
-		{
-			ptr[i] =  '0';
-			i++;
-		}
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
 	}
+	return 0;
 }
+
 int	main(void)
 {
-	char str[15];
-	ft_bzero(str,14*sizeof(char));
-	printf("%s",str);
-	bzero(str,14*sizeof(char));
-	printf("\n%s", str);
+	char str1[] = "ABA";
+	char str2[] = "ABZ";
+	int result = ft_memcmp(str1, str2, 3);
+	printf("%d", result);
 	return 0;
 }
