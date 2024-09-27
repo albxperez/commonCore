@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strchr.c                                           :+:      :+:    :+:   */
+/*   atoi.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/26 18:05:57 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/09/27 10:37:21 by aperez-r         ###   ########.fr       */
+/*   Created: 2024/09/27 12:31:57 by aperez-r          #+#    #+#             */
+/*   Updated: 2024/09/27 12:49:40 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-char	*ft_strchr(const char *s, int c)
-{
-	int i;
+int 
 
-	i  = 0;
-	while (s[i] != '\0')
+int	atoi(const char *str)
+{
+	int	i;
+	int	num;
+	int	result;
+
+	i = 0;
+	num = 1;
+	result = 0;
+	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\n'
+		|| str[i] == '\r' || str[i] == '\t' || str[i] == '\v')
+		i++;
+	while (str[i] == '+' || str[i] == '-')
 	{
-		if(s[i] == c)
-			return (char *)&s[i];
+		if (str[i] == '-')
+			num = num * -1;
 		i++;
 	}
-
-	if(c == '\0')
-		//&=operador de direccion
-		return (char *)&s[i];
-
-	return NULL;
-
-}
-
-int	main(void)
-{
-	const char str[] = "hola mundo";
-	printf("%p",ft_strchr(str, 'a'));
-	char *resultado = ft_strchr(str, 'a');
-        printf("\n%s", resultado);
-	return 0;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + (str[i] - '0');
+		i++;
+	}
+	result = result * num;
+	return (result);
 }

@@ -1,42 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strchr.c                                           :+:      :+:    :+:   */
+/*   strncmp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/26 18:05:57 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/09/27 10:37:21 by aperez-r         ###   ########.fr       */
+/*   Created: 2024/09/27 11:22:52 by aperez-r          #+#    #+#             */
+/*   Updated: 2024/09/27 11:33:51 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-char	*ft_strchr(const char *s, int c)
+int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {
-	int i;
+	int	i;
+	int	result;
 
-	i  = 0;
-	while (s[i] != '\0')
+	i = 0;
+	while (str1[i] != '\0' || str2[i] != '\0')
 	{
-		if(s[i] == c)
-			return (char *)&s[i];
-		i++;
+		while(i < n)
+		{
+			if (str1[i] == str2[i])
+			{
+				i++;
+			}
+			else
+			{
+				result = str1[i] - str2[i];
+				return (result);
+			}
+		}
 	}
-
-	if(c == '\0')
-		//&=operador de direccion
-		return (char *)&s[i];
-
-	return NULL;
-
+	return 0;
 }
 
 int	main(void)
 {
-	const char str[] = "hola mundo";
-	printf("%p",ft_strchr(str, 'a'));
-	char *resultado = ft_strchr(str, 'a');
-        printf("\n%s", resultado);
+	const char str1[] = "holamundo";
+	const char str2[] = "holamundo";
+	printf("%i", ft_strncmp(str1, str2, 9));
 	return 0;
 }
