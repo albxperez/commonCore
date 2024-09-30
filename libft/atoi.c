@@ -6,13 +6,11 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:31:57 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/09/27 12:49:40 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/09/30 12:14:39 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int 
+#include <stdio.h> 
 
 int	atoi(const char *str)
 {

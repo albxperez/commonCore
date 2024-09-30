@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 19:34:31 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/09/23 19:38:29 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/09/30 12:11:45 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_bzero(void *s, size_t n)
 {
 	unsigned char *ptr = (unsigned char*) s;
 
-	int i;
+	size_t i;
 
 	i = 0;
 	while(i != '\0')

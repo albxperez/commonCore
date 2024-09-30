@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 11:22:52 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/09/27 11:33:51 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/09/30 12:13:01 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {
-	int	i;
+	size_t	i;
 	int	result;
 
 	i = 0;
