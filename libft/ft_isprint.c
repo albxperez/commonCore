@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isascii.c                                          :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/18 16:36:17 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/09/18 16:49:28 by aperez-r         ###   ########.fr       */
+/*   Created: 2024/09/18 16:49:46 by aperez-r          #+#    #+#             */
+/*   Updated: 2024/09/30 15:52:53 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <ctype.h>
+#include "libft.h"
 
-int	ft_isascii(int c)
+int	ft_isprint(int c)
 {
-	if (c >= 0 && c <= 127)
+	if(c > 31 && c < 127)
 		return 1;
 	else 
 		return 0;
@@ -24,8 +22,8 @@ int	ft_isascii(int c)
 
 int	main(void)
 {
-	unsigned char c = '\n';
-	printf("%d", ft_isascii(c));
-	printf("\n%d", isascii(c));
+	unsigned char c ='A' ;
+	printf("%d", ft_isprint(c));
+	printf("\n%d", isprint(c));
 	return 0;
 }

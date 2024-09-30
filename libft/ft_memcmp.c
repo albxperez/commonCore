@@ -1,45 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atoi.c                                             :+:      :+:    :+:   */
+/*   memcmp.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/27 12:31:57 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/09/27 12:49:40 by aperez-r         ###   ########.fr       */
+/*   Created: 2024/09/25 18:19:46 by aperez-r          #+#    #+#             */
+/*   Updated: 2024/09/30 12:13:50 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
-int	atoi(const char *str)
+int	ft_memcmp(const void *str1, const void *str2, size_t n)
 {
-	int	i;
-	int	num;
-	int	result;
+	unsigned char *s1 = (unsigned char*) str1;
+	unsigned char *s2 = (unsigned char*) str2;
+	size_t	i;
 
 	i = 0;
-	num = 1;
-	result = 0;
-	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\n'
-		|| str[i] == '\r' || str[i] == '\t' || str[i] == '\v')
-		i++;
-	while (str[i] == '+' || str[i] == '-')
+	while (((s1[i] != '\0') || (s2[i] != '\0')) && (i < n))
 	{
-		if (str[i] == '-')
-			num = num * -1;
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10 + (str[i] - '0');
-		i++;
-	}
-	result = result * num;
-	return (result);
+	return 0;
 }
 
 int	main(void)
 {
-
+	char str1[] = "ABA";
+	char str2[] = "ABZ";
+	int result = ft_memcmp(str1, str2, 3);
+	printf("%d", result);
+	return 0;
 }

@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memcpy.c                                           :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 18:13:39 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/09/25 16:59:55 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/09/30 15:59:49 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-#include <stdio.h>
-#include <string.h>
 int	ft_strlen(const char *src)
 {
 	int	i;
@@ -30,7 +29,7 @@ void    *ft_memcpy(void *dest, const void *src, size_t n)
     //se convierten los punteros void a char para poder manipular byte a byte
     unsigned char *d = (unsigned char*) dest;
     unsigned const char *s = (unsigned const char*) src;
-    int i;
+    size_t i;
 
     i = 0;
     while (i < n)

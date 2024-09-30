@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlen.c                                           :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/19 12:12:49 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/09/19 12:22:06 by aperez-r         ###   ########.fr       */
+/*   Created: 2024/09/19 12:24:23 by aperez-r          #+#    #+#             */
+/*   Updated: 2024/09/19 18:23:59 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdio.h>
 
-int	ft_strlen(char *str)
+int	ft_toupper(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
+	if (!(c >= 'A' && c <= 'Z'))
+		{
+			c = c - 32;
+			return (c);
+		}
+	else 
+		return (c);
 }
 
 int	main(void)
 {
-	char str[] = "alba";
-	printf("%i",ft_strlen(str));
+	unsigned char c = 'A';
+	printf("%c", ft_toupper(c));
 	return 0;
 }

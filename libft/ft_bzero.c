@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memmove.c                                          :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 12:08:05 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/09/25 16:50:17 by aperez-r         ###   ########.fr       */
+/*   Created: 2024/09/23 19:34:31 by aperez-r          #+#    #+#             */
+/*   Updated: 2024/09/30 15:56:23 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned char *d = (unsigned char*) dest;
-	unsigned const char *s = (unsigned const char*) src;
-	unsigned char temp[10];
-	int i;
+	unsigned char *ptr = (unsigned char*) s;
+
+	size_t i;
 
 	i = 0;
-	while(i < n)
+	while(i != '\0')
 	{
-		temp[i] = s[i];
-		d[i] = temp[i];
-		i++;
+		while(i <= n)
+		{
+			ptr[i] =  '0';
+			i++;
+		}
 	}
-	return d;
 }
-
 int	main(void)
 {
-	const char src[10] = "hola mundo";
-	char dest[10];
-	ft_memmove(dest, src, 5);
-	printf("%s",dest);
-	printf("\n%s", src);
+	char str[15];
+	ft_bzero(str,14*sizeof(char));
+	printf("%s",str);
+	bzero(str,14*sizeof(char));
+	printf("\n%s", str);
 	return 0;
 }

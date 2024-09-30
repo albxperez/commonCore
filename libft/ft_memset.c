@@ -1,41 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bzero.c                                            :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 19:34:31 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/09/23 19:38:29 by aperez-r         ###   ########.fr       */
+/*   Created: 2024/09/19 18:28:08 by aperez-r          #+#    #+#             */
+/*   Updated: 2024/09/30 15:55:53 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <strings.h>
+#include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char *ptr = (unsigned char*) s;
 
-	int i;
+	size_t i;
 
 	i = 0;
 	while(i != '\0')
 	{
-		while(i <= n)
+		while(i < n)
 		{
-			ptr[i] =  '0';
+			ptr[i] = (unsigned char) c;
 			i++;
 		}
 	}
+
+	return ptr;
 }
+
 int	main(void)
 {
 	char str[15];
-	ft_bzero(str,14*sizeof(char));
+	//printf("%p", ft_memset(str,'A', sizeof(char)));
+	ft_memset(str, 'A', 14*sizeof(char));
 	printf("%s",str);
-	bzero(str,14*sizeof(char));
+	memset(str, 'A',14*sizeof(char));
 	printf("\n%s", str);
 	return 0;
 }

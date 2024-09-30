@@ -1,45 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strncmp.c                                          :+:      :+:    :+:   */
+/*   memchr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/27 11:22:52 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/09/27 11:33:51 by aperez-r         ###   ########.fr       */
+/*   Created: 2024/09/25 17:14:13 by aperez-r          #+#    #+#             */
+/*   Updated: 2024/09/30 12:13:19 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
-int	ft_strncmp(const char *str1, const char *str2, size_t n)
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-	int	i;
-	int	result;
+	unsigned char *ptr = (unsigned char*) str;
+	size_t i; 
 
 	i = 0;
-	while (str1[i] != '\0' || str2[i] != '\0')
+	while(i < n)
 	{
-		while(i < n)
-		{
-			if (str1[i] == str2[i])
-			{
-				i++;
-			}
-			else
-			{
-				result = str1[i] - str2[i];
-				return (result);
-			}
-		}
+		if(ptr[i] == c)
+			return (ptr - i);
+		i++;
 	}
-	return 0;
+	return NULL;
 }
 
 int	main(void)
 {
-	const char str1[] = "holamundo";
-	const char str2[] = "holamundo";
-	printf("%i", ft_strncmp(str1, str2, 9));
+	const char str[10] = "hola mundo";
+	char *result = ft_memchr(str, 'u', 10);
+	printf("%li", str - result);
 	return 0;
 }

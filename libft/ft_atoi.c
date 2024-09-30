@@ -1,44 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memset.c                                           :+:      :+:    :+:   */
+/*   atoi.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/19 18:28:08 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/09/23 12:14:48 by aperez-r         ###   ########.fr       */
+/*   Created: 2024/09/27 12:31:57 by aperez-r          #+#    #+#             */
+/*   Updated: 2024/09/30 12:14:39 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+int	atoi(const char *str)
 {
-	unsigned char *ptr = (unsigned char*) s;
-
-	int i;
+	int	i;
+	int	num;
+	int	result;
 
 	i = 0;
-	while(i != '\0')
+	num = 1;
+	result = 0;
+	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\n'
+		|| str[i] == '\r' || str[i] == '\t' || str[i] == '\v')
+		i++;
+	while (str[i] == '+' || str[i] == '-')
 	{
-		while(i <= n)
-		{
-			ptr[i] = (unsigned char) c;
-			i++;
-		}
+		if (str[i] == '-')
+			num = num * -1;
+		i++;
 	}
-
-	return ptr;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + (str[i] - '0');
+		i++;
+	}
+	result = result * num;
+	return (result);
 }
 
 int	main(void)
 {
-	char str[15];
-	//printf("%p", ft_memset(str,'A', sizeof(char)));
-	ft_memset(str, 'A', 14*sizeof(char));
-	printf("%s",str);
-	memset(str, 'A',14*sizeof(char));
-	printf("\n%s", str);
-	return 0;
+
 }
