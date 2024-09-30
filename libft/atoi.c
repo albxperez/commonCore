@@ -12,8 +12,6 @@
 
 #include <stdio.h>
 
-int 
-
 int	atoi(const char *str)
 {
 	int	i;
@@ -39,4 +37,9 @@ int	atoi(const char *str)
 	}
 	result = result * num;
 	return (result);
+}
+
+int	main(void)
+{
+
 }
