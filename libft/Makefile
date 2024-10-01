@@ -6,15 +6,15 @@
 #    By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/30 11:36:23 by aperez-r          #+#    #+#              #
-#    Updated: 2024/09/30 13:12:14 by aperez-r         ###   ########.fr        #
+#    Updated: 2024/10/01 21:59:26 by aperez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Variables
-CC = gcc              # Compilador
+CC = cc              # Compilador
 CFLAGS = -Wall -Wextra -Werror -c  # Opciones de compilación
 AR = ar rcs           # Comando para crear librerías estáticas
-LIB = libft.a      # Nombre de la librería
+NAME = libft.a      # Nombre de la librería
 
 # Lista de archivos fuente
 SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
@@ -25,16 +25,28 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 #generar archivos objeto correspondientes
 OBJ =  $(SRC:.c=.o)
 
+all: ${NAME}
+
 # Regla principal: crear la librería
-$(LIB): $(OBJ)
-	$(AR) $(LIB) $(OBJ)
-	echo "Librería $(LIB) creada."
+$(NAME): $(OBJ)
+	$(AR) $(NAME) $(OBJ)
+	echo "Librería $(NAME) creada."
 
 # Regla para compilar los archivos .c en archivos .o
-%.o: %.c mylib.h
-	$(CC) $(CFLAGS) $< -o $@
+%.o: %.c 
+	$(CC) $(CFLAGS) -c $< -o $@
 
-# Regla para limpiar archivos temporales
-clean:
-	rm -f *.o $(LIB)
-	echo "Archivos objeto y librería eliminados."
+# Regla para limpiar archivos .o
+clean: 
+	@rm -f $(OBJ)
+	echo "archivos objeto borrados"
+#Regla para limpiar los archivos .o y a libreria 
+fclean: clean
+	@rm -f $(NAME)
+	echo "archivos objeto y libreria borrada"
+#Hace un re-make (como si se hubiera ejecutado Make por primera vez)
+re: fclean $(NAME)
+	echo "se ha vuelto a hacer el make"
+#se definen todas las reglas utilizadas en el makefile, se define que son nombres de comandos 
+# y no de archivos  
+.PHONY	= all clean fclean re 

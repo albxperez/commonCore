@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 19:34:31 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/09/30 15:56:23 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:25:37 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ft_bzero(void *s, size_t n)
 		}
 	}
 }
+/*
 int	main(void)
 {
 	char str[15];
@@ -36,4 +37,4 @@ int	main(void)
 	bzero(str,14*sizeof(char));
 	printf("\n%s", str);
 	return 0;
-}
+}*/

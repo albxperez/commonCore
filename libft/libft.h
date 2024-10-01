@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 12:28:19 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/09/30 16:00:37 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:19:24 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 // Funciones relacionadas con caracteres
 int     ft_isalpha(int c);

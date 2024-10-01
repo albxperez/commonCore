@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 16:29:39 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/09/30 16:01:59 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/01 18:00:03 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 		i++;
 	}
 	i = 0;
-	while (i + 1 < size)
+	while (i + 1 < dstsize)
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	if (size > 0)
+	if (dstsize > 0)
 		dest[i] = '\0';
 	return (src_len);
 }	
