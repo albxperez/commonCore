@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 19:34:31 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/01 17:25:37 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/02 19:38:42 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,15 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char *ptr = (unsigned char*) s;
+	unsigned char	*ptr ;
+	size_t			i;
 
-	size_t i;
-
+	ptr = (unsigned char *) s;
 	i = 0;
-	while(i != '\0')
+	while (i < n)
 	{
-		while(i <= n)
-		{
-			ptr[i] =  '0';
-			i++;
-		}
+		ptr[i] = 0;
+		i++;
 	}
 }
 /*
@@ -33,8 +30,8 @@ int	main(void)
 {
 	char str[15];
 	ft_bzero(str,14*sizeof(char));
-	printf("%s",str);
+	printf("ft_bzero: %s\n",str);
 	bzero(str,14*sizeof(char));
-	printf("\n%s", str);
+	printf("bzero: %s",str);
 	return 0;
 }*/

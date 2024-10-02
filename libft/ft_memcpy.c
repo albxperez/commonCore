@@ -6,41 +6,30 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 18:13:39 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/09/30 15:59:49 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/02 19:54:43 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(const char *src)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int	i;
+	unsigned char			*d;
+	unsigned const char		*s;
+	size_t					i;
 
+	d = (unsigned char *) dest;
+	s = (unsigned const char *) src;
 	i = 0;
-	while (src[i] != '\0')
+	while (i < n)
 	{
+		d[i] = s[i];
 		i++;
 	}
-	return (i);
+	return (d);
 }
-
-void    *ft_memcpy(void *dest, const void *src, size_t n)
-{
-    //se convierten los punteros void a char para poder manipular byte a byte
-    unsigned char *d = (unsigned char*) dest;
-    unsigned const char *s = (unsigned const char*) src;
-    size_t i;
-
-    i = 0;
-    while (i < n)
-    {
-        d[i] = s[i];
-        i++; 
-    }
-
-    return d;
-
-}
+/*
+se convierten los punteros void a char para poder manipular byte a byte
 
 int main(void)
 {
@@ -54,4 +43,4 @@ int main(void)
     printf("\n%s", dest);
     printf("\n%s", src);
     return 0;
-}
+}*/

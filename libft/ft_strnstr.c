@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strnstr.c                                          :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 11:34:20 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/09/30 12:14:20 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:35:38 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
@@ -32,7 +32,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return 0;
 }
-
+/*
 int	main(void)
 {
 	const char str1[] = "bocata de jamon y queso";
@@ -40,4 +40,4 @@ int	main(void)
 	char *result = ft_strnstr(str1, str2, sizeof(str1));
 	printf("%s", result);
 	return 0;
-}
+}*/

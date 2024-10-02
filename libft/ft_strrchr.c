@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strrchr.c                                          :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 10:21:47 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/09/27 10:36:37 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:36:10 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_strlen(const char *str)
 {
@@ -42,7 +42,7 @@ char	*ft_strrchr(const char *s, int c)
 
 	return NULL;
 }
-
+/*
 int	main(void)
 {
 	const char str[] = "hola mundo";
@@ -50,4 +50,4 @@ int	main(void)
 	char *resultado = ft_strrchr(str, 'h');
 	printf("\n%s", resultado);
 	return 0;
-}
+}*/
