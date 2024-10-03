@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 11:22:52 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/02 18:38:30 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/03 11:17:29 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_strncmp(const char *str1, const char *str2, size_t n)
 		}
 		i++;
 	}
-	return 0;
+	return (0);
 }
 
 /*int	main(void)
