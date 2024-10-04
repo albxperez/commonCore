@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 10:05:22 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/04 11:45:26 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/04 16:19:48 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 }
 
-int	main(void)
+/*int	main(void)
 {
 	const char *string = "hello world";
 	const char *set = "w";
 	char *result = ft_strtrim(string, set);
 	printf("%s", result);
 	return 0;
-}
+}*/
