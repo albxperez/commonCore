@@ -6,7 +6,7 @@
 #    By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/30 11:36:23 by aperez-r          #+#    #+#              #
-#    Updated: 2024/10/03 18:37:05 by aperez-r         ###   ########.fr        #
+#    Updated: 2024/10/04 09:35:17 by aperez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@
 		ft_strchr.c ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c \
 		ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c\
 		ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c\
+		ft_substr.c ft_strjoin.c\
 #generar archivos objeto correspondientes
 OBJ =  ${SRC:.c=.o}
 

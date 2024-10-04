@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/26 18:05:57 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/04 09:45:36 by aperez-r         ###   ########.fr       */
+/*   Created: 2024/10/04 08:48:24 by aperez-r          #+#    #+#             */
+/*   Updated: 2024/10/04 09:26:59 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
+	size_t	s1_len;
+	size_t	s2_len;
+	char *new_string;
 
-	i = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
-		i++;
-	}
-	if ((char)c == '\0')
-		return ((char *)&s[i]);
-	return (NULL);
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	new_string = malloc((s1_len + s2_len + 1) * sizeof(char));
+	if(new_string == NULL)
+		return (NULL);
+	ft_strlcpy(new_string, s1, (s1_len + 1));
+	ft_strlcat(new_string, s2, (s1_len + s2_len + 1));
+	return (new_string);
 }
 
-/* &=operador de direccion*/
 /*int	main(void)
 {
-	const char str[] = "teste";
-	printf("%p",ft_strchr(str, '\0'));
-	char *resultado = ft_strchr(str, '\0');
-        printf("\n%s", resultado);
+	const char str1[] = "hola ";
+	const char str2[] = "mundo";
+	printf("%s",ft_strjoin(str1, str2));
 	return 0;
 }*/

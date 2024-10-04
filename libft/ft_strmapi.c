@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/27 10:21:47 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/04 09:47:20 by aperez-r         ###   ########.fr       */
+/*   Created: 2024/10/04 13:14:45 by aperez-r          #+#    #+#             */
+/*   Updated: 2024/10/04 13:25:32 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	len;
+	char			*str;
+	unsigned int	i;
 
-	len = ft_strlen(s);
-	while (len >= 0)
+	if (s == (void *)0 || f == (void *)0)
+		return (NULL);
+	str = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i])
 	{
-		if (s[len] == (char)c)
-			return ((char *)&s[len]);
-		len--;
+		str[i] = f(i, s[i]);
+		i++;
 	}
-	if ((char)c == '\0')
-		return ((char *)&s[len]);
-	return (NULL);
+	str[i] = '\0';
+	return (str);
 }
-/*
- * //&=operador de direccion
+
 int	main(void)
 {
-	const char str[] = "hola mundo";
-	printf("%p", ft_strrchr(str, 'h'));
-	char *resultado = ft_strrchr(str, 'h');
-	printf("\n%s", resultado);
+	char *result;
+	result = ft_strmapi("f", ft_toupper);
+	printf("%s", result);
 	return 0;
-}*/
+}

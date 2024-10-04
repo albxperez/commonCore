@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 12:28:19 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/03 18:38:47 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/04 09:36:15 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int					ft_atoi(const char *nptr);
 void				*ft_calloc(size_t nelem, size_t elsize);
 char				*ft_strdup(const char *s);
 
+char                            *ft_substr(char const *s, unsigned int start, size_t len);
+char                            *ft_strjoin(char const *s1, char const *s2);
 
 void                            ft_putchar_fd(char c, int fd);
 void                            ft_putendl_fd(char *s, int fd);

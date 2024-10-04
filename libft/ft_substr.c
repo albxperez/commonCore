@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 11:49:13 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/03 17:22:46 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/04 09:37:37 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	str_len;
 	char	*s2;
-	int		i;
+	size_t		i;
 
 	i = 0;
 	if (s == NULL)
@@ -44,11 +44,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (s2);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char const string[] = "bocata de jamon";
         unsigned int start = 10;
         size_t lenght = 6;
         printf("%s",ft_substr(string, start, lenght));
         return 0;
-}
+}*/
