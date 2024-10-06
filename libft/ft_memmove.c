@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 12:08:05 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/04 17:49:50 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/06 15:46:10 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,29 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	d = (unsigned char *) dest;
 	s = (unsigned const char *) src;
-	if(d < s)
-	{	
+	if (d < s)
+	{
 		i = 0;
 		while (i < n)
 		{
 			d[i] = s[i];
 			i++;
 		}
-	}else
+	}
+	else
 	{
 		while (n-- > 0)
 			d[n] = s[n];
 	}
-
 	return (d);
 }
 
 /*int	main(void)
 {
-	char str[] = "hola mundo";
-	ft_memmove(str + 3, str, 2);
+	char str[] = "libro";
+	ft_memmove(str + 3, str, 3);
 	printf("%s", str);
+	memmove(str + 3, str , 3);
+	printf("\n%s", str);
 	return 0;
 }*/

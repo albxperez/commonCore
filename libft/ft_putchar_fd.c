@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 17:23:26 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/03 18:35:15 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/06 18:09:34 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	write(fd,&c,1);
+	write (fd, &c, 1);
 }
+/*
+#include <fcntl.h>
 
-/*int	main(void)
+int main(void)
 {
-	ft_putchar_fd('d', 1);
-	return 0;
+	int fd = open("testfile.txt", O_WRONLY | O_CREAT, 0644);
+	ft_putchar_fd('c', fd);
 }*/

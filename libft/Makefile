@@ -6,7 +6,7 @@
 #    By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/30 11:36:23 by aperez-r          #+#    #+#              #
-#    Updated: 2024/10/04 16:16:17 by aperez-r         ###   ########.fr        #
+#    Updated: 2024/10/06 21:07:39 by aperez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@
 		ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c\
 		ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c\
 		ft_substr.c ft_strjoin.c ft_strtrim.c ft_strmapi.c ft_striteri.c\
+		ft_itoa.c\
 #generar archivos objeto correspondientes
 OBJ =  ${SRC:.c=.o}
 

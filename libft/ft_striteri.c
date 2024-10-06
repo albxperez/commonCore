@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 15:53:11 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/04 16:15:23 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/06 15:44:31 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	unsigned int i;
+	unsigned int	i;
 
 	if (s == (void *)0 || f == (void *)0)
-		return;
+		return ;
 	i = 0;
 	while (s[i] != '\0')
 	{
@@ -25,7 +25,6 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 		i++;
 	}
 }
-
 /*void replace_vowels(unsigned int index, char *c) {
 
     if (*c == 'a' || *c == 'e' || *c == 'i' || *c == 'o' || *c == 'u' ||

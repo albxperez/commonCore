@@ -6,49 +6,49 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 10:05:22 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/04 16:19:48 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/06 15:39:29 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_in_set(char ch, const char *set) {
+int	is_in_set(char ch, const char *set)
+{
 	int	i;
 
 	i = 0;
-	while (set[i] != '\0') 
+	while (set[i] != '\0')
 	{
 		if (set[i] == ch)
-			return  1;
+			return (1);
 		i++;
 	}
-	return 0;
+	return (0);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	i;
+	size_t	i;
 	size_t	start;
 	size_t	end;
 	char	*new_str;
 
 	if (s1 == NULL || set == NULL)
-        	return NULL;
+		return (NULL);
 	start = 0;
-        end = ft_strlen(s1);
-	while(s1[start] && is_in_set(s1[start], set))
+	end = ft_strlen(s1);
+	while (s1[start] && is_in_set(s1[start], set))
 		start++;
-	while(end > start && is_in_set(s1[end - 1], set))
+	while (end > start && is_in_set(s1[end - 1], set))
 		end--;
 	new_str = (char *)malloc(end - start + 1);
 	if (new_str == NULL)
-        	return NULL;
+		return (NULL);
 	i = 0;
 	while (start < end)
 		new_str[i++] = s1[start++];
 	new_str[i] = '\0';
-	return new_str;
-
+	return (new_str);
 }
 
 /*int	main(void)

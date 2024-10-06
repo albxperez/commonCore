@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 17:33:29 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/03 18:35:53 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/06 18:11:56 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,20 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
-	if(s != NULL)
+	if (s != NULL)
 	{
-		while(s[i] != '\0')
+		while (s[i] != '\0')
 		{
 			write(fd, &s[i], 1);
 			i++;
 		}
 	}
 }
-
-/*int	main(void)
+/*
+#include <fcntl.h>
+#include <unistd.h>
+int main(void)
 {
-	char str[] = "helloworld";
-	ft_putstr_fd(str, 1);
-	return 0;
+	int fd = open("test.txt", O_WRONLY);
+	ft_putstr_fd("nnebinf", fd);
 }*/
