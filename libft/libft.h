@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 12:28:19 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/06 21:08:15 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/07 12:44:51 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,5 @@ void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr_fd(char *s, int fd);
 
 char				*ft_itoa(int n);
+char				**ft_split(char const *s, char c);
 #endif /* LIBFT_H */

@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 17:54:29 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/06 21:37:13 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/07 13:09:48 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,75 +14,73 @@
 
 int	ft_is_negative(int *n)
 {
-	if(*n < 0)
+	if (*n < 0)
 	{
 		*n = -*n;
-		return 1;
+		return (1);
 	}
-	return 0;
+	return (0);
 }
 
 size_t	ft_num_digits(int nbr)
 {
-	size_t numDigits;
+	size_t	num_digits;
 
-	numDigits = 0;
-	if(nbr == 0)
-		return 1;
-	while(nbr != 0)
-        {
-                nbr = nbr / 10;
-                numDigits++;
-        }
-	return numDigits;
+	num_digits = 0;
+	if (nbr == 0)
+		return (1);
+	while (nbr != 0)
+	{
+		nbr = nbr / 10;
+		num_digits++;
+	}
+	return (num_digits);
 }
 
-char	*ft_is_zero(void)
+static void	ft_fill_num(char *str, unsigned int nbr, int num_digits, int n)
 {
-	char *str;
-	str = (char *)malloc(2 * sizeof(char));
-	if (str == NULL)
-		return NULL;
-	str[0] = '0';
-	str[1] = '\0';
-	return str;
+	if (n == 0)
+	{
+		str[0] = '0';
+		str[1] = '\0';
+		return ;
+	}
+	while (num_digits > 0)
+	{
+		str[--num_digits] = (nbr % 10) + '0';
+		nbr = nbr / 10;
+	}
 }
+
 char	*ft_itoa(int n)
 {
-	size_t	numDigits;
-	char	*str;
 	unsigned int	nbr;
-	int	isNegative;
-	
-	nbr = n;
-	numDigits = ft_num_digits(nbr);
-	isNegative = ft_is_negative(&n);
-	if (n == 0)
-		return ft_is_zero();
-	if (n == -2147483648)
-		return strdup("-2147483648");
-	if(isNegative)
-		numDigits++;//para el signo
-	str = (char *)malloc((numDigits + 1) * sizeof(char));
-	if(str == NULL)
-		return (NULL);
-	str[numDigits] = '\0';
-	while (n != 0)
-	{
-		str[--numDigits] = (n % 10) + '0';
-       		n = n / 10;
-	}
-	if (isNegative)
-        	str[--numDigits] = '-';
-	return str;
-}
+	int				num_digits;
+	char			*str;
+	int				is_negative;
 
-/*int	main(void)
+	if (n == -2147483648)
+		return (strdup("-2147483648"));
+	is_negative = ft_is_negative(&n);
+	nbr = n;
+	num_digits = ft_num_digits(nbr);
+	str = (char *)malloc((num_digits + is_negative + 1) * sizeof(char));
+	if (str == NULL)
+		return (NULL);
+	str[num_digits + is_negative] = '\0';
+	ft_fill_num(str + is_negative, nbr, num_digits, n);
+	if (is_negative)
+		str[0] = '-';
+	return (str);
+}
+/*
+int	main(void)
 {
-	int number = -12345;
+	int number = (-9874);
 	char* result = ft_itoa(number);
     
     if (result != NULL)
         printf("El número %d como cadena es: %s\n", number, result);
     return 0;
-}*/
+}
+*/
