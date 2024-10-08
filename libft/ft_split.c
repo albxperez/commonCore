@@ -6,13 +6,13 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 19:15:25 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/07 20:59:15 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/08 08:56:59 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_words(const char *s, char c)
+static int	count_words(const char *s, char c)
 {
 	int	words;
 	int	i;
@@ -33,69 +33,69 @@ int	count_words(const char *s, char c)
 	return (words);
 }
 
-char	*ft_word_dup(const char *s, char c)
+static void ft_free_split(char **result, int letters)
 {
-	int		len;
-	char	*string;
+	int	i;
 
-	len = 0;
-	while (s[len] != '\0' && s[len] != c)
-		len ++;
-	string = (char *)malloc(len + 1);
-	if (string == NULL)
-		return (NULL);
-	ft_strlcpy(string, s, len + 1);
-	return (string);
+	i = 0;
+	if (result == NULL)
+		return;
+	while (i < letters)
+	{
+		free(result[i]);
+		i++;
+	}
+	free(result);
 }
 
-void ft_free_split(char **result) {
-    int i = 0;
+static int	ft_fill_split(char **result, const char *s, char c)
+{
+	int	i;
+	int	len;
+	int	word;
+	i = 0;
+	word = 0;
+	while(s[i] != '\0')
+	{
+		if(s[i] == c)
+			i++;
+		else
+		{
+			while (s[len] != '\0' && s[len] != c)
+				len ++;
+			result[word] = (char *)malloc(len + 1);
+			if (result == NULL)
+			{
+				ft_free_split(result, word);
+				return (0);
+			}
 
-    if (result == NULL)
-        return; // No hacer nada si result es NULL
-
-    while (result[i] != NULL) {
-        free(result[i]); // Liberar cada palabra
-        i++;
-    }
-    free(result); // Liberar el array de punteros
+			ft_strlcpy(*result, s, len + 1);
+			i += len;
+			word ++;
+		}
+	}
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
-	int		i;
-	int		j;
 
 	if (s == NULL)
 		return (NULL);
 	result = (char **)malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (result == NULL)
 		return (NULL);
-	i = 0;
-	j = 0;
-	while (s[i] != '\0')
+	if(ft_fill_split(result, s, c) == 0)
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i] != '\0')
-		{
-			result[j] = ft_word_dup(&s[i], c);
-			if(result[j] == NULL)
-			{
-				ft_free_split(result);
-				return NULL;
-			}
-			j++;
-			while (s[i] != '\0' && s[i] != c)
-				s++;
-		}
+		free(result);
+		return (NULL);
 	}
-	result[j] = NULL;
 	return (result);
 }
 
-/*int main(void)
+int main(void)
 {
     char string[] = "lorem ipsum dolor sit amet, consectetur adipiscing elits.";
     char c = 'i'; // Delimitador
@@ -109,4 +109,4 @@ char	**ft_split(char const *s, char c)
     free(result); // Liberamos la memoria del array
 
     return 0;
-}*/
+}
