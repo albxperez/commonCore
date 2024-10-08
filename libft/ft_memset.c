@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 18:28:08 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/02 19:57:40 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/08 12:56:42 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,13 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (ptr);
 }
-/*
-int	main(void)
+
+/*int	main(void)
 {
 	char str[6] = "abcdef";
-	//printf("%p", ft_memset(str,'A', sizeof(char)));
-	ft_memset(str, 'A', 3*sizeof(char));
+	ft_memset(str, 'A', 3);
 	printf("%s",str);
-	memset(str, 'A',3*sizeof(char));
+	memset(str, 'A',3);
 	printf("\n%s", str);
 	return 0;
 }*/

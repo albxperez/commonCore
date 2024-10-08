@@ -6,13 +6,13 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 17:54:29 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/07 13:09:48 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/08 11:44:23 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_is_negative(int *n)
+static int	ft_is_negative(int *n)
 {
 	if (*n < 0)
 	{
@@ -22,7 +22,7 @@ int	ft_is_negative(int *n)
 	return (0);
 }
 
-size_t	ft_num_digits(int nbr)
+static size_t	ft_num_digits(int nbr)
 {
 	size_t	num_digits;
 

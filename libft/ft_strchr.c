@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 18:05:57 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/04 09:45:36 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/08 13:13:46 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-/* &=operador de direccion*/
 /*int	main(void)
 {
 	const char str[] = "teste";

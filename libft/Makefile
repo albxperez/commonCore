@@ -6,7 +6,7 @@
 #    By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/30 11:36:23 by aperez-r          #+#    #+#              #
-#    Updated: 2024/10/07 12:44:08 by aperez-r         ###   ########.fr        #
+#    Updated: 2024/10/08 12:19:11 by aperez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ OBJ =  ${SRC:.c=.o}
 all: ${NAME}
 
 # Regla principal: crear la librería
-${NAME}: ${OBJ}
+${NAME}:${OBJ}
 	${AR} ${NAME} ${OBJ}
 	@echo "Librería ${NAME} creada."
 

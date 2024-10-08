@@ -6,13 +6,13 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 10:05:22 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/06 15:39:29 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/08 11:45:40 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_in_set(char ch, const char *set)
+static int	is_in_set(char ch, const char *set)
 {
 	int	i;
 
