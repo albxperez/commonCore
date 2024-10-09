@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 18:03:40 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/03 11:16:39 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/09 18:12:14 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,14 @@ unsigned int	ft_strlcat(char *dest, const char *src, size_t size)
 	dest[dest_len + i] = '\0';
 	return (dest_len + src_len);
 }
-/*
-int	main(void)
+
+/*int	main(void)
 {
 	char str1[] = "hello";
 	char str2[] = "world";
 	unsigned int i;
-	i = ft_strlcat(str1, str2, 3);
+	i = ft_strlcat(str1, str2, 11);
 	printf("%u", i);
+	printf("\n%s", str1);
 	return (0);
 }*/
