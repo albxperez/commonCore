@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 15:49:18 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/10 18:54:25 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/11 16:17:11 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list *nodo;
+	t_list	*nodo;
 
-	nodo =(t_list *)malloc(sizeof(t_list));
-	if(nodo == NULL)
-		return NULL;
+	nodo = (t_list *)malloc(sizeof(t_list));
+	if (nodo == NULL)
+		return (NULL);
 	nodo->content = content;
 	nodo->next = NULL;
-	return(nodo);
+	return (nodo);
 }
 
 /*
@@ -31,6 +31,7 @@ int	main(void)
    	t_list *result = ft_lstnew(content);
 
    	if (result != NULL) {
+
 	       	printf("%s\n", (char *)result->content);
 	} else {
 		printf("Error al crear el nodo.\n");

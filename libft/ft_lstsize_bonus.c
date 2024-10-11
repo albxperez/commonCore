@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 19:29:06 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/10 19:45:18 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/11 16:21:31 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ int	ft_lstsize(t_list *lst)
 	int	i;
 
 	i = 0;
-	while(lst != NULL)
+	while (lst != NULL)
 	{
 		lst = lst->next;
 		i++;
 	}
-	return i;
+	return (i);
 }
 
 /*int	main(void)
@@ -43,4 +43,3 @@ int	ft_lstsize(t_list *lst)
 	printf("%i", result);
 	return 0;
 }*/
-

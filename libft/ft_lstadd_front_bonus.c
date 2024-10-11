@@ -6,15 +6,15 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 17:53:05 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/10 19:42:52 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/11 16:18:52 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
-{	
-	if(!lst && !new)
+{
+	if (!lst && !new)
 		return ;
 	new->next = *lst;
 	*lst = new;

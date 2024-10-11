@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 19:45:47 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/11 10:30:15 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/11 16:21:01 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	if(lst == NULL)
-		return NULL;
-	while(lst->next != NULL)
+	if (lst == NULL)
+		return (NULL);
+	while (lst->next != NULL)
 		lst = lst->next;
-	return lst;
+	return (lst);
 }
 
 /*int	main(void)
