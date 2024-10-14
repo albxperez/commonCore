@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 18:13:39 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/08 13:11:51 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:42:53 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (d);
 }
-/*
-se convierten los punteros void a char para poder manipular byte a byte
-*/
 
 /*int main(void)
 {

@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:14:45 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/06 15:34:04 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:48:00 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	return (str);
 }
 
-/*
-char	to_upper_with_index(unsigned int i, char c) {
+/*char	to_upper_with_index(unsigned int i, char c) {
     	(void)i;
    	 return (char)toupper((int)c);
 }

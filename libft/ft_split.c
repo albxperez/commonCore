@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 19:15:25 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/09 19:38:27 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:15:36 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,9 @@ char	**ft_split(char const *s, char c)
 	char	**result;
 	int		words;
 
-	words = count_words(s, c);
 	if (s == NULL)
 		return (NULL);
+	words = count_words(s, c);
 	result = (char **)malloc((words + 1) * sizeof(char *));
 	if (result == NULL)
 		return (NULL);
@@ -111,16 +111,19 @@ char	**ft_split(char const *s, char c)
 
 /*int main(void)
 {
-    char string[] = "lorem ipsum dolor sit amet, consectetur adipiscing elits .";
-    char c = ' '; // Delimitador
+    char *string = "ñlkjhgfdsa lkjhgfdsa kjhgfds";
+    char c = ' ';
     char **result = ft_split(string, c);
 
-    for (int i = 0; result[i] != NULL; i++)
+    if(result != NULL)
     {
-        printf("Palabra %d: %s\n", i + 1, result[i]);
-        free(result[i]); // Liberamos la memoria de cada palabra
-    }
-    free(result); // Liberamos la memoria del array
+	    for (int i = 0; result[i] != NULL; i++)
+    		{	
+        	printf("Palabra %d: %s\n", i + 1, result[i]);
+        	free(result[i]);
+    		}
+	}
+    free(result);
 
     return 0;
 }*/

@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 12:28:19 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/11 17:16:20 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:40:01 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <unistd.h>
 # include <ctype.h>
 # include <stdlib.h>
+# include <fcntl.h>
 
 typedef struct s_list
 {

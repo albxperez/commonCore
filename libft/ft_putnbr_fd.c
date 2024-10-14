@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 17:49:41 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/06 18:11:28 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:41:41 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ void	ft_putnbr_fd(int n, int fd)
 	ft_putchar_fd(num % 10 + '0', fd);
 }
 /*
-#include <fcntl.h>
-#include <unistd.h>
 int main(void)
 {
         int fd = open("test.txt", O_WRONLY);

@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 08:48:24 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/11 16:24:42 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:02:01 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	s2_len;
 	char	*new_string;
 
-	if (s1 == NULL && s2 == NULL)
+	if (s1 == NULL || s2 == NULL)
 		return (NULL);
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
@@ -32,7 +32,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 /*int	main(void)
 {
-	const char *str1 = NULL;
+	const char *str1 = "hola";
 	const char *str2 = NULL;
 	printf("%s",ft_strjoin(str1, str2));
 	return 0;

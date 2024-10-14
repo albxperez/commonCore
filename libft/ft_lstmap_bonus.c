@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 16:27:02 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/11 19:04:30 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/14 11:24:34 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (new_list);
 }
-
+/*
 // Función duplica el valor de un entero
 void	*duplicate_content(void *content)
 {
@@ -91,8 +91,8 @@ int	main(void)
     print_list(new_list);
 
     // Liberar las dos listas
-    ft_lstclear(&list, del_content);
-    ft_lstclear(&new_list, del_content);
+    ft_lstclear(&list, free_content);
+    ft_lstclear(&new_list, free_content);
 
     return (0);
-}
+}*/

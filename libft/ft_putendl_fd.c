@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 17:43:27 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/06 18:11:00 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:41:05 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ void	ft_putendl_fd(char *s, int fd)
 		write(fd, "\n", 1);
 	}
 }
-/*#include <fcntl.h>
-#include <unistd.h>
+/*
 int main(void)
 {
         int fd = open("test.txt", O_WRONLY);

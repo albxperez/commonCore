@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 17:33:29 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/06 18:11:56 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:41:57 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 }
 /*
-#include <fcntl.h>
-#include <unistd.h>
 int main(void)
 {
 	int fd = open("test.txt", O_WRONLY);

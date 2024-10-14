@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 17:54:29 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/08 11:44:23 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/10/14 19:18:00 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char	*ft_itoa(int n)
 	int				is_negative;
 
 	if (n == -2147483648)
-		return (strdup("-2147483648"));
+		return (ft_strdup("-2147483648"));
 	is_negative = ft_is_negative(&n);
 	nbr = n;
 	num_digits = ft_num_digits(nbr);
@@ -73,10 +73,10 @@ char	*ft_itoa(int n)
 		str[0] = '-';
 	return (str);
 }
-/*
-int	main(void)
+
+/*int	main(void)
 {
-	int number = (-9874);
+	int number = (-1234);
 	char* result = ft_itoa(number);
     
     if (result != NULL)
