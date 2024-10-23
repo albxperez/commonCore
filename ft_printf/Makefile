@@ -6,7 +6,7 @@
 #    By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/22 17:39:24 by aperez-r          #+#    #+#              #
-#    Updated: 2024/10/22 17:42:24 by aperez-r         ###   ########.fr        #
+#    Updated: 2024/10/23 17:57:52 by aperez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,9 @@
 	NAME = libftprintf.a
 
 # Lista de archivos fuente
-	SRC = ft_printf.c ft_putchar.c\
+	SRC = ft_printf.c ft_print_char.c ft_print_str.c\
+	      ft_print_ptr.c ft_print_nbr.c ft_print_unsigned.c\
+	      ft_print_hexa.c\
 
 #generar archivos objeto correspondientes
 OBJ =  ${SRC:.c=.o}

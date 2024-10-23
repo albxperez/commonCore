@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_print_hexa.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 18:56:42 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/23 19:16:51 by aperez-r         ###   ########.fr       */
+/*   Created: 2024/10/23 16:22:57 by aperez-r          #+#    #+#             */
+/*   Updated: 2024/10/23 18:38:57 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_str(char *s)
+int	ft_print_hexa(unsigned long long nbr, int cap)
 {
-	int	i;
+	int		size;
+	char	hexa_min;
+	char	hexa_mayus;
 
-	i = 0;
-	if (s != NULL)
-	{
-		while (s[i] != '\0')
-		{
-			write(1, &s[i], 1);
-			i++;
-		}
-	}
-	else if (s == NULL)
-	{
-		write (1, "(null)", 6);
-		return (6);
-	}
-	return (i);
+	size = 0;
+	hexa_min = "0123456789abcdef"[nbr % 16];
+	hexa_mayus = "0123456789ABCDEF"[nbr % 16];
+	if (nbr >= 16)
+		size += ft_print_hexa(nbr / 16, cap);
+	if (cap == 0)
+		size += ft_print_char(hexa_min);
+	else
+		size += ft_print_char(hexa_mayus);
+	return (size);
 }

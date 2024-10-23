@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_print_ptr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 18:56:42 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/23 19:16:51 by aperez-r         ###   ########.fr       */
+/*   Created: 2024/10/23 15:32:15 by aperez-r          #+#    #+#             */
+/*   Updated: 2024/10/23 19:16:03 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_str(char *s)
+int	ft_print_ptr(void *p)
 {
-	int	i;
+	int					size;
+	unsigned long long	pointer;
 
-	i = 0;
-	if (s != NULL)
+	pointer = (unsigned long long)p;
+	size = 0;
+	if (!p)
 	{
-		while (s[i] != '\0')
-		{
-			write(1, &s[i], 1);
-			i++;
-		}
+		size += ft_print_str("nil");
+		return (size);
 	}
-	else if (s == NULL)
-	{
-		write (1, "(null)", 6);
-		return (6);
-	}
-	return (i);
+	size += ft_print_str("0x");
+	size += ft_print_hexa(pointer, 0);
+	return (size);
 }
