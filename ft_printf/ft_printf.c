@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:58:52 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/10/23 18:37:01 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/11/06 17:22:18 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,15 @@ int	ft_printf(const char *str, ...)
 }
 /*int	main(void)
 {
-   char caracter = '0';
-   char cadena[] = "Hola, mundo!";
-   void *puntero = (void *)0x12345678;
-   int entero = 42;
-   unsigned int sin_signo = 123;
+   char caracter = 'H';
+   char *cadena = NULL;
+   void *puntero = NULL;
+   int entero = -2147483648;
+   unsigned int sin_signo = 4294967295;
    int hexadecimal = 0xABCD;
+
+   int original_ret = 0;
+   int mi_ret = 0;
 
     // Prueba de diferentes formatos de impresión
     ft_printf("Caracter: %c\n", caracter);
