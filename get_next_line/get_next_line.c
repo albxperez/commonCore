@@ -6,62 +6,97 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 15:17:44 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/11/15 19:26:02 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/11/19 18:27:12 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*get_next_line(int fd)
+static char     *ft_error(char *str)
 {
-	char	*stash;
-	char	*buffer;
-	char	*line;
-
-	
-	buffer = malloc(sizeof(char) * BUFFER_SIZE);
-
-	stash = fill_line_buffer(fd, stash, buffer);
-	free(buffer);
-	line = set_line(stash);
-	return (line);
+        if(str)
+        {
+                free(str);
+                str = NULL;
+        }
+        return (NULL);
 }
 
-char	*fill_line_buffer(int fd, char *stash, char *buffer)
+static char	*fill_line_buffer(int fd, char *stash)
 {
 	ssize_t bytes_read;
+	char	*buffer;
 	
-	bytes_read = 1;
 	if(!stash)	
-		stash = ft_strdup(buffer);
-	if(fd < 0)
-		return (NULL);
-	buffer = malloc(sizeof(char) * BUFFER_SIZE + 1);
-	while(bytes_read > 0)
+		stash = ft_strdup("");
+	buffer =(char *)malloc(BUFFER_SIZE + 1 * sizeof(char));
+	if(!buffer)
+		return (ft_error(stash));
+	while(stash && !ft_strchr(stash, '\n'))
 	{	
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
-		if(bytes_read == -1)
-			return (NULL);
+		if(bytes_read < 0)
+			return (ft_error(stash), ft_error(buffer));
 		if(bytes_read == 0)
+		{
+			if(stash[0] == '\0')
+				return(ft_error(buffer), stash);
 			break ;
+		}
+		buffer[bytes_read] = '\0';
+		char *temp = ft_strjoin(stash, buffer);
+		if(!temp)
+			return(ft_error(stash),ft_error(buffer));
+		stash = temp;
 	}
-	buffer[bytes_read] = '\0';
-	stash = ft_strjoin(stash, buffer);
-	return (stash);
+
+	return (ft_error(buffer), stash);
 }
 
-char	*set_line(char *line_buffer)
+static char	*set_line(char **stash)
 {
 	char	*newline;
 	char	*line;
-
-	newline = ft_strchr(line_buffer, '\n');
+	char	*temp;
+	
+	if(!stash || !*stash)
+		return (NULL);
+	newline = ft_strchr(*stash, '\n');
 	if(newline)
-		line = ft_substr(line_buffer, 0, newline - line_buffer + 1);
+	{
+		line = ft_substr(*stash, 0, newline - *stash + 1);
+		temp = ft_strdup(newline + 1);
+		free(*stash);
+		*stash = temp;
+		if(!line)
+			return (ft_error(line));
+	}
 	else
 	{
-		line = ft_strdup(line_buffer);
-		free(line_buffer);
+		line = ft_strdup(*stash);
+		free(*stash);
+		*stash = NULL;
 	}
 	return (line);
 }
+
+char    *get_next_line(int fd)
+{
+        static char    *stash;
+        char    *line;
+
+        if(fd < 0 || BUFFER_SIZE <= 0)
+                return (NULL);
+        stash = fill_line_buffer(fd, stash);
+	if(!stash)
+		return (NULL);
+        line = set_line(&stash);
+	if(line && line [0] == '\0')
+	{
+		free(line);
+		return (NULL);
+	}
+        return (line);
+}
+
+

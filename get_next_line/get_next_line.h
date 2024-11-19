@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 16:25:08 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/11/15 19:25:08 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:53:39 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@
 # include <stdlib.h>
 
 char	*get_next_line(int fd);
-char	*fill_line_buffer(int fd, char *stash, char *buffer);
-char	*set_line(char *line_buffer);
 int	ft_strlen(const char *str);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s);
