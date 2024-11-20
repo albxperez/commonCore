@@ -28,19 +28,19 @@ static char	*fill_line_buffer(int fd, char *stash)
 	char	*buffer;
 	char	*temp;
 
-	if (!stash)
+	if (!stash)//si estash es NULL, se incilializa como cadena vacia
 		stash = ft_strdup("");
 	buffer = (char *)malloc(BUFFER_SIZE + 1 * sizeof(char));
 	if (!buffer)
 		return (ft_error(stash));
-	while (stash && !ft_strchr(stash, '\n'))
+	while (stash && !ft_strchr(stash, '\n'))//si stash no es NULL y no hay salto de línea en stash
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read < 0)
 			return (ft_error(stash), ft_error(buffer));
 		if (bytes_read == 0)
 		{
-			if (stash[0] == '\0')
+			if (stash[0] == '\0')//si stash está vacío
 				return (ft_error(buffer), stash);
 			break ;
 		}
@@ -54,7 +54,7 @@ static char	*fill_line_buffer(int fd, char *stash)
 	return (ft_error(buffer), stash);
 }
 
-static char	*set_line(char **stash)
+static char	*set_line(char **stash)//doble puntero para editar el stash de gnl
 {
 	char	*newline;
 	char	*line;
@@ -63,7 +63,7 @@ static char	*set_line(char **stash)
 	if (!stash || !*stash)
 		return (NULL);
 	newline = ft_strchr(*stash, '\n');
-	if (newline)
+	if (newline)//si newline existe
 	{
 		line = ft_substr(*stash, 0, newline - *stash + 1);
 		temp = ft_strdup(newline + 1);
