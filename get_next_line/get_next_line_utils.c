@@ -90,15 +90,13 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	str_len;
 	char	*s2;
 	size_t	i;
 
 	i = 0;
 	if (s == NULL)
 		return (NULL);
-	str_len = ft_strlen(s);
-	if (str_len < start)
+	if (ft_strlen(s) < start)
 	{
 		s2 = malloc(1 * sizeof(char));
 		if (s2 == NULL)
@@ -106,16 +104,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		s2[0] = '\0';
 		return (s2);
 	}
-	if (len > str_len - start)
-		len = str_len - start;
+	if (len > ft_strlen(s) - start)
+		len = ft_strlen(s) - start;
 	s2 = malloc((len + 1) * sizeof(char));
 	if (s2 == NULL)
 		return (NULL);
 	while (i < len)
-	{
-		s2[i] = s[start + i];
-		i++;
-	}
+		s2[i++] = s[start ++];
 	s2[i] = '\0';
 	return (s2);
 }
