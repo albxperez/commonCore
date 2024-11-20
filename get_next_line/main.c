@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 19:09:58 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/11/20 16:54:28 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/11/20 19:00:30 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ int	main(void)
 		perror("Error al abrir el archivo");
 		return (1);
 	}
-    line = get_next_line(fd);
+	line = get_next_line(fd);
 	while (line != NULL)
 	{
 		printf("%s", line);
 		free(line);
-        line = get_next_line(fd);
+		line = get_next_line(fd);
 	}
 	close(fd);
 	return (0);

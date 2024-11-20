@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 16:25:08 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/11/20 16:47:23 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/11/20 18:52:08 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <unistd.h>
 
 char	*get_next_line(int fd);
-int		ft_strlen(const char *str);
+size_t		ft_strlen(const char *str);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);

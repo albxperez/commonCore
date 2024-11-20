@@ -6,13 +6,13 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 19:04:18 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/11/20 16:49:57 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/11/20 18:51:31 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 
@@ -96,7 +96,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = 0;
 	if (s == NULL)
 		return (NULL);
-	if (ft_strlen(s) < start)
+	if (start > ft_strlen(s))
 	{
 		s2 = malloc(1 * sizeof(char));
 		if (s2 == NULL)
