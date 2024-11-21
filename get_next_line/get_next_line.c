@@ -6,13 +6,13 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 15:17:44 by aperez-r          #+#    #+#             */
-/*   Updated: 2024/11/20 19:05:13 by aperez-r         ###   ########.fr       */
+/*   Updated: 2024/11/21 15:51:54 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*ft_error(char *str)
+static char	*ft_free(char *str)
 {
 	if (str)
 	{
@@ -26,32 +26,29 @@ static char	*fill_line_buffer(int fd, char *stash)
 {
 	ssize_t	bytes_read;
 	char	*buffer;
-	char	*temp;
 
 	if (!stash)
 		stash = ft_strdup("");
-	buffer = (char *)malloc(BUFFER_SIZE + 1 * sizeof(char));
+	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
-		return (ft_error(stash));
+		return (ft_free(stash));
 	while (stash && !ft_strchr(stash, '\n'))
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read < 0)
-			return (ft_error(stash), ft_error(buffer));
+			return (ft_free(stash), ft_free(buffer));
 		if (bytes_read == 0)
 		{
 			if (stash[0] == '\0')
-				return (ft_error(buffer), stash);
+				return (ft_free(buffer), stash);
 			break ;
 		}
 		buffer[bytes_read] = '\0';
-		temp = ft_strjoin(stash, buffer);
-		free(stash);
-		stash = temp;
+		stash = ft_strjoin(stash, buffer);
 		if (!stash)
-			return (ft_error(stash));
+			return (ft_free(stash));
 	}
-	return (ft_error(buffer), stash);
+	return (ft_free(buffer), stash);
 }
 
 static char	*set_line(char **stash)
@@ -70,7 +67,7 @@ static char	*set_line(char **stash)
 		free(*stash);
 		*stash = temp;
 		if (!line)
-			return (ft_error(line));
+			return (ft_free(line));
 	}
 	else
 	{
