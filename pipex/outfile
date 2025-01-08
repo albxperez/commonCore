@@ -1,0 +1,9 @@
+grep
+PATH encontrado: PATH=/home/aperez-r/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+Primera ruta: /home/aperez-r/bin
+/
+ cmd_path:wc
+PATH encontrado: PATH=/home/aperez-r/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+Primera ruta: /home/aperez-r/bin
+/
+ cmd_path:
