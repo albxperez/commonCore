@@ -45,33 +45,41 @@ void	second_process_output(char *argv[], int *fd, char *envp[])
 	execute_cmd(argv[3], envp);
 }
 
-/*char	*get_path(char *envp[])
+char	*find_cmd_path(char **cmd_args, char *path_divided)
 {
-	char **path_divided;
-	
-	while(*envp)
-	{
-		if(ft_strncmp(*envp, "PATH", 4) == 0)
-			break;
-		envp++;
+	char	path_slash;
+	char	cmd_path;
+	int	i;
+
+	i = 0;
+	while(path_divided[i]){
+		path_slash = ft_strncpy(path_divided, '/');
+		cmd_path = ft_strncpy(path_slash, cmd_args);
+
+		//verificar si el ejecutable existe y tiene permisos de ejecucion
+		if(access(cmd_path, X_OK) == 0)
+			return (cmd_path);
+		i++
 	}
-	printf("%s\n envp: " , *envp);
-	path_divided = ft_split(*envp + 5, ':');
-	printf("%s\n path_divided:", *path_divided);
-	return(*path_divided);
+	return (NULL);
 
-}*/
+}
 
-char *get_path(char **envp)
+char	**split_path(char *path)
 {
-    char **path_divided;
+	return(split(path, ':'));
+	printf("PATH dividido "+ split(path, ':'));
+}
+
+char	*get_path(char **envp)
+{
+	//char **path_divided;
+	char *path_divided[];
 
     while (*envp) {
         if (ft_strncmp(*envp, "PATH=", 5) == 0) {
             printf("PATH encontrado: %s\n", *envp);
-            path_divided = ft_split(*envp + 5, ':');
-            printf("Primera ruta: %s\n", path_divided[0]);
-            return *path_divided;
+	    return(*envp + 5);
         }
         envp++;
     }
@@ -82,12 +90,16 @@ char *get_path(char **envp)
 
 void	execute_cmd(char *cmd, char *envp[])
 {
-	char	*cmd_path;
 	char	**cmd_arg;
+	char	*path;
+	char	**path_divided;
+	char	*cmd_path;
 
 	cmd_arg = ft_split(cmd, ' ');
 	printf("%s\n", *cmd_arg);
-	cmd_path = get_path(envp);
+	path = get_path(envp);
+	path_divided = split_path(path);
+	cmd_path = find_cmd_path(*cmd_arg, path_divided);
 	printf("%c\n cmd_path:",*cmd_path);
 	if(!cmd_path)
 	{
@@ -95,6 +107,10 @@ void	execute_cmd(char *cmd, char *envp[])
 		exit(1);
 	}
 	execve(cmd_path, cmd_arg, envp);
+
+	//si falla la ejecucion 
+	perror("Error al ejecutar el comando");
+	exit(1);
 }
 
 int main(int argc, char *argv[], char *envp[])
