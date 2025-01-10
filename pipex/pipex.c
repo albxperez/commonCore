@@ -6,7 +6,7 @@
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:59:44 by aperez-r          #+#    #+#             */
-/*   Updated: 2025/01/08 18:50:32 by aperez-r         ###   ########.fr       */
+/*   Updated: 2025/01/10 17:00:46 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,65 +45,70 @@ void	second_process_output(char *argv[], int *fd, char *envp[])
 	execute_cmd(argv[3], envp);
 }
 
-char	*find_cmd_path(char **cmd_args, char *path_divided)
+char	*find_cmd_path(char *cmd_arg, char *path_divided[])
 {
-	char	path_slash;
-	char	cmd_path;
+	char	*path_slash;
+	char	*cmd_path;
 	int	i;
 
 	i = 0;
-	while(path_divided[i]){
-		path_slash = ft_strncpy(path_divided, '/');
-		cmd_path = ft_strncpy(path_slash, cmd_args);
+	while(path_divided[i] != NULL){
+		path_slash = ft_strjoin(path_divided[i], "/");
+		cmd_path = ft_strjoin(path_slash, cmd_arg);
 
 		//verificar si el ejecutable existe y tiene permisos de ejecucion
 		if(access(cmd_path, X_OK) == 0)
 			return (cmd_path);
-		i++
+		i++;
 	}
 	return (NULL);
 
 }
 
-char	**split_path(char *path)
+char	*get_path(char *cmd_arg, char **envp)
 {
-	return(split(path, ':'));
-	printf("PATH dividido "+ split(path, ':'));
-}
 
-char	*get_path(char **envp)
-{
-	//char **path_divided;
-	char *path_divided[];
-
-    while (*envp) {
+	char	**path_divided;
+	char	*cmd_path;
+	if (envp == NULL || *envp == NULL)
+		perror("There is no PATH defined\n");
+    while (*envp != NULL) {
         if (ft_strncmp(*envp, "PATH=", 5) == 0) {
-            printf("PATH encontrado: %s\n", *envp);
-	    return(*envp + 5);
-        }
-        envp++;
+			break;
+		}
+		envp++;
     }
-    printf("PATH no encontrado\n");
-    return NULL;
+
+	path_divided = ft_split(*envp + 5, ':');
+	if(!path_divided){
+		perror("path_divided vacio");
+		exit(1);
+	}
+	cmd_path = find_cmd_path(cmd_arg, path_divided);
+    return (cmd_path);
 }
 
 
 void	execute_cmd(char *cmd, char *envp[])
 {
-	char	**cmd_arg;
-	char	*path;
-	char	**path_divided;
+	char	**cmd_arg;	
+	//char	**path_divided;
 	char	*cmd_path;
 
 	cmd_arg = ft_split(cmd, ' ');
-	printf("%s\n", *cmd_arg);
-	path = get_path(envp);
-	path_divided = split_path(path);
-	cmd_path = find_cmd_path(*cmd_arg, path_divided);
-	printf("%c\n cmd_path:",*cmd_path);
+	if (!cmd_arg || !cmd_arg[0])
+	{
+		perror("Permiso denegado.");
+		exit(1);
+	}
+	cmd_path = get_path(*cmd_arg, envp);
+	//path_divided = get_path(cmd_arg,envp);
+	//cmd_path = find_cmd_path(cmd_arg, *path_divided);
+
 	if(!cmd_path)
 	{
-		perror("Comando no encontrado");
+		perror("Comando no encontrado.");
+		printf ("%s\n", cmd_path);
 		exit(1);
 	}
 	execve(cmd_path, cmd_arg, envp);
