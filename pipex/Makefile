@@ -5,47 +5,58 @@
 #                                                     +:+ +:+         +:+      #
 #    By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/12/11 15:48:29 by aperez-r          #+#    #+#              #
-#    Updated: 2024/12/11 15:52:08 by aperez-r         ###   ########.fr        #
+#    Created: 2025/01/12 12:40:38 by aperez-r          #+#    #+#              #
+#    Updated: 2025/01/12 13:19:10 by aperez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Compilador
-	CC = cc
-# Opciones de compilación
-	CFLAGS = -Wall -Werror -Wextra
-# Comando para crear librerías estáticas
-	AR = ar rcs
-# Nombre de la librería
-	NAME = pipex.a
+NAME = pipex
 
 # Lista de archivos fuente
-	SRC = 
-#generar archivos objeto correspondientes
-OBJ =  ${SRC:.c=.o}
+SOURCES = pipex_utils.c pipex.c
 
-all: ${NAME}
+# Lista de archivos objeto
+OBJECTS = pipex_utils.o pipex.o
 
-# Regla principal: crear la librería
-${NAME}:${OBJ}
-	${AR} ${NAME} ${OBJ}
-	@echo "Librería ${NAME} creada."
+# Libreria
+LIBFT = lib/libft.a
 
-# Regla para compilar los archivos .c en archivos .o
-%.o: %.c 
-	${CC} ${CFLAGS} -c $< -o $@
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -g3
+RM = rm -f
 
-# Regla para limpiar archivos .o
-clean: 
-	@rm -f ${OBJ} $(BONUS_OBJ)
-	@echo "archivos objeto borrados"
-#Regla para limpiar los archivos .o y a libreria 
+# Regla principal
+$(NAME): $(OBJECTS) $(LIBFT)
+	@$(CC) $(CFLAGS) $(OBJECTS) -L lib -lft -o $(NAME)
+	@echo "Created $(NAME)"
+
+src/ft_pipex_utils.o: src/ft_pipex_utils.c
+	@echo "Compiling ft_pipex_utils.c"
+	@$(CC) $(CFLAGS) -c src/ft_pipex_utils.c -o src/ft_pipex_utils.o
+
+src/ft_pipex.o: src/ft_pipex.c
+	@echo "Compiling ft_pipex.c"
+	@$(CC) $(CFLAGS) -c src/ft_pipex.c -o src/ft_pipex.o
+
+
+all: $(NAME)
+
+# Limpiar archivos objeto
+clean:
+	@$(RM) $(OBJECTS)
+	@$(MAKE) -C lib clean
+	@echo "All objects cleaned"
+
+# Limpiar todo
 fclean: clean
-	@rm -f ${NAME}
-	@echo "archivos objeto y libreria borrada"
-#Hace un re-make (como si se hubiera ejecutado Make por primera vez)
-re: fclean ${NAME}
-	@echo "se ha vuelto a hacer el make"
-#se definen todas las reglas utilizadas en el makefile, se define que son nombres de comandos 
-# y no de archivos  
-.PHONY	= all clean fclean re
+	@$(RM)	$(NAME)
+	@$(MAKE) -C lib fclean
+	@echo "All executable cleaned"
+
+# Recompilar todo
+re: fclean all
+
+$(LIBFT):
+	@$(MAKE) -C lib
+
+.PHONY: all clean fclean re
