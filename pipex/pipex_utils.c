@@ -106,6 +106,8 @@ void	free_double_pointer(char **ptr)
 {
     int	i;
 
+	if (ptr == NULL)
+		return ;
 	i = 0;
     while (ptr[i])
         free(ptr[i++]);
