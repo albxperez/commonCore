@@ -1,26 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   paramsum.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperez-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 17:33:02 by aperez-r          #+#    #+#             */
-/*   Updated: 2025/01/15 17:40:52 by aperez-r         ###   ########.fr       */
+/*   Created: 2025/01/15 17:46:54 by aperez-r          #+#    #+#             */
+/*   Updated: 2025/01/15 18:06:37 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_strcmp(char *s1, char *s2)
+int	main(int argc, char *argv[])
 {
-	int i = 0;
-
-	while(s1[i] != '\0' || s2[i] != '\0')
+	if(argc == 1)
 	{
-		if(!(s1[i] == s2[i]))
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
+		write(1,"0",1);
+		write(1,"\n",1);
+		return 1;
 	}
+
+
+	int i = 0 ;
+	while(argv[i + 1] != (void *)0)
+		i++;
+	int len = 0;
+	int temp = 0;
+	char buffer[2];
+	temp = i;
+	if(temp >= 10)
+	{
+		buffer[len++] = temp / 10 + '0';
+		temp %= 10;
+	}
+	buffer[len++] = temp + '0';
+	write(1,buffer, len);
+	write(1,"\n",1);
 	return 0;
+
 }
