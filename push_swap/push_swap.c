@@ -6,7 +6,7 @@
 /*   By: aperez-r <aperez-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 12:39:31 by aperez-r          #+#    #+#             */
-/*   Updated: 2025/01/22 19:01:46 by aperez-r         ###   ########.fr       */
+/*   Updated: 2025/01/24 17:19:03 by aperez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,13 @@ t_node	fill_stack(char **arguments, int argc)
 		long num;
 		num = ft_atoi(arguments[i]);	
 		if(alredy_exists(num, stack) == 1)
+			//error
+		
+		stack ->  top++;
+		stack -> pile[stack->top] = n;
+		i--;
 	}
+	return (stack);
 }
 t_node	create_stack(void)
 {
