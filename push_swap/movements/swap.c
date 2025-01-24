@@ -14,8 +14,10 @@
 
 void	swap(t_node **stack)
 {
-	t_node *aux :
-		if (*stack == NULL || (*stack)->next == NULL) return ;
+	t_node	*aux;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		return ;
 	aux = *stack;
 	*stack = (*stack)->next;
 	if (*stack != NULL)
